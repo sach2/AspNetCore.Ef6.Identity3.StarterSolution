@@ -37,11 +37,18 @@ namespace StarterSolution.Web
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            // services.AddDbContext<ApplicationDbContext>(options =>
+            // options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            // services.AddScoped<CarApplicationDbContext>(_ =>
+            //new CarApplicationDbContext(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<CarApplicationDbContext>(_ => 
-                new CarApplicationDbContext(Configuration.GetConnectionString("DefaultConnection")));
+                new CarApplicationDbContext(Configuration.GetConnectionString("SqliteConnection")));
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("SqliteConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
