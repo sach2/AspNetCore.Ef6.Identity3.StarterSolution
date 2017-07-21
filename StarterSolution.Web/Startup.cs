@@ -44,9 +44,6 @@ namespace StarterSolution.Web
             // services.AddScoped<CarApplicationDbContext>(_ =>
             //new CarApplicationDbContext(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddScoped<CarApplicationDbContext>(_ => 
-                new CarApplicationDbContext(Configuration.GetConnectionString("SqliteConnection")));
-
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("SqliteConnection")));
 

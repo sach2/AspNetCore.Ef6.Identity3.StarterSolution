@@ -15,7 +15,7 @@
             _carService = carService ?? throw new ArgumentNullException(nameof(carService));
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             // Create some stub data
             var car = new Car()
@@ -25,9 +25,9 @@
                 Year = 1987
             };
 
-            await _carService.CreateCarAsync(car);
+            _carService.CreateCar(car);
 
-            return View(await _carService.GetCarsAsync());
+            return View(_carService.GetCars());
         }
     }
 }

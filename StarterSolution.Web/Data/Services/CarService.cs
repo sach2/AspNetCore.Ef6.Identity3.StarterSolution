@@ -17,15 +17,15 @@
             _carsRepository = carsRepository ?? throw new ArgumentNullException(nameof(carsRepository));
         }
 
-        public async Task<CarViewModel> CreateCarAsync(Car car)
+        public CarViewModel CreateCar(Car car)
         {
-            var createdCar = await _carsRepository.AddAsync(car);
+            var createdCar = _carsRepository.Add(car);
             return CarModelFactory.CreateCarViewModel(createdCar);
         }
 
-        public async Task<IEnumerable<CarViewModel>> GetCarsAsync()
+        public IEnumerable<CarViewModel> GetCars()
         {
-            var cars = await _carsRepository.GetAllAsync();
+            var cars = _carsRepository.GetAll();
             return CarModelFactory.CreateCarViewModels(cars);
         }
     }

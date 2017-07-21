@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using StarterSolution.Web.Models;
+using StarterSolution.Data.Models;
 
 namespace StarterSolution.Web.Data
 {
@@ -14,7 +15,7 @@ namespace StarterSolution.Web.Data
             : base(options)
         {
         }
-
+        public virtual DbSet<Car> Cars { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

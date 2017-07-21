@@ -7,7 +7,7 @@
 
     public interface ICarService
     {
-        Task<CarViewModel> CreateCarAsync(Car car);
-        Task<IEnumerable<CarViewModel>> GetCarsAsync();
+        CarViewModel CreateCar(Car car);
+        IEnumerable<CarViewModel> GetCars();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using StarterSolution.Data.Models;
+using StarterSolution.Web.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,12 @@ namespace StarterSolution.Data
 {
     public class CarsRepository : EntityFrameworkRepository<Car>, ICarsRepository
     {
-        public CarApplicationDbContext CarsContext
+        public ApplicationDbContext CarsContext
         {
-            get { return Context as CarApplicationDbContext;}
+            get { return Context as ApplicationDbContext;}
         }
 
-        public CarsRepository(CarApplicationDbContext context) : base(context)
+        public CarsRepository(ApplicationDbContext context) : base(context)
         {
 
         }
